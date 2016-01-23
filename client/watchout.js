@@ -85,6 +85,19 @@ var transition = function(){
 };
 setInterval(transition,1000);
 
+
+board.on('mousemove', function(){
+	var loc = d3.mouse(this);
+	player = {x : loc[0], y: loc[1]};
+	d3.select('.player').style({
+		top: addPx( player.y),
+		left: addPx(player.x)
+	})
+
+})
+
+
+
 // d3.selectAll('.player').on('mousedown', function(){
 // 	var player = d3.select(this)
 // 	 .classed('active,' true);
