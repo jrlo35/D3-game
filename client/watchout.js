@@ -49,9 +49,11 @@ var asteroids = board.selectAll('.asteroids')
 	.enter().append('div')
 	.attr('class', 'asteroid')
 	.style('top', function(){
+		
 		return randomY();
 	})
 	.style('left', function(){
+		
 		return randomX();
 	})
 	.style({
@@ -59,7 +61,10 @@ var asteroids = board.selectAll('.asteroids')
 		width: '30px'
 	});
 
-
+//var distance=asteroids.
+//var xDiff=asteroids
+//var yDiff=
+//
 var transition = function(){
 	asteroids.transition().style('top',function(){
 		return randomY();}).style('left',function(){
@@ -69,16 +74,22 @@ var transition = function(){
 };
 var intervalID=window.setInterval(transition,1000);
 
-d3.select('.board')
+var player = d3.select('.board')
 	.append('svg').attr('class','player')
 	.attr('width',50).attr('height',50)
 	.append('circle').attr('cx',25).attr('cy',25).attr('r',10)
 	.style('fill','purple')
-	.style({
-		top: '200px',
-		left: '200px'
-	})
+	
+
+//var distance
+
+//var collision = asteroids.each(function(d){
+//	var x=d3.select(this).style('top');
+//	var y=d3.select(this).style('left');
 //
+//	var x1 = x - player.x1;
+//	var y1 = y - player.y1;
+//})
 
 // setInterval(transition,1000);
 // var enemyData=_.range(0,gameSize.enemies).map(function(i){
@@ -88,5 +99,8 @@ d3.select('.board')
 // 		y.Math.random()*100
 // 	}
 // })
+
+
+
 
 	
