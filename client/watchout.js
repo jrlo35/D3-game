@@ -7,6 +7,26 @@ var gameSize= {
 	enemies: 30
 	}
 
+var currentScore = 0;
+var highScore = 0;
+var collisionCount = 0;
+
+var scoreUpdate = function(){
+	d3.select('.scoreboard .current span').text(currentScore);
+	d3.select('.scoreboard .high span').text(highScore);
+	d3.select('.scoraboard .collisions span').text(collisionCount);
+}
+
+var scoreCounter = function(){
+	currentScore = currentScore + 1;
+	if(currentScore>highScore){
+		highScore=currentScore;
+	}
+	scoreUpdate()
+}
+setInterval(scoreCounter,500);
+
+
 var addPx = function(number){
 	return number + 'px';
 }
@@ -16,18 +36,6 @@ var board = d3.select('.board').style({
 	height: addPx(gameSize.height)
 });
 
-
-
-// var board= d3.select('board').append('svg:svg')
-// 	//.style({
-// 	//	width: pixel(gameSize.h),
-// 	//	height: pixel(gameSize.w)
-// 	//})
-// 	.attr('width', gameSize.width)
-// 	.attr('height', gameSize.height)
-
-// var gameAxes= {x: d3.scale.linear().domain([0,100]).range[0,gameSize.width],
-// y: d3.scale.linear().domain([0,100]).range[0,gameSize.height]}
 var randomY = function(){
 	return addPx (Math.floor(Math.random() * gameSize.height))
 };
@@ -60,6 +68,17 @@ var transition = function(){
 
 };
 var intervalID=window.setInterval(transition,1000);
+
+d3.select('.board')
+	.append('svg').attr('class','player')
+	.attr('width',50).attr('height',50)
+	.append('circle').attr('cx',25).attr('cy',25).attr('r',10)
+	.style('fill','purple')
+	.style({
+		top: '200px',
+		left: '200px'
+	})
+//
 
 // setInterval(transition,1000);
 // var enemyData=_.range(0,gameSize.enemies).map(function(i){
