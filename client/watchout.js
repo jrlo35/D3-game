@@ -1,6 +1,6 @@
 // start slingin' some d3 here.
 var gameSize= {
-	height: 800,
+	height: 400,
 	width: 800,		
 	enemies: 5,
 	r:20
@@ -49,7 +49,7 @@ var randomX = function(){
 };
 
 d3.select('.player')
- 
+ 	
  	.style({
 	top: addPx(player.y),
 	left: addPx(player.x),
@@ -75,6 +75,8 @@ var asteroids = board.selectAll('.asteroids')
 		width: addPx(gameSize.r),
 		height: addPx(gameSize.r),
 	});
+
+
 
 var transition = function(){
 	asteroids.transition().style('top',function(){
@@ -112,17 +114,17 @@ board.on('mousemove', function(){
 
 // 	  }
 // })
-var move = function(){
+//var move = function(){
 //     
-var dragTarget = d3.select(this);
+//var dragTarget = d3.select(this);
 //     
-   dragTarget
-       .attr("cx", function(){return d3.event.dx + parseInt(dragTarget.style('top'),10)})
-       .attr("cy", function(){return d3.event.dy + parseInt(dragTarget.style('left'),10)});
-};
-var drag=d3.behavior.drag().on("drag", move);
+//   dragTarget
+//       .attr("cx", function(){return d3.event.dx + parseInt(dragTarget.style('top'),10)})
+//       .attr("cy", function(){return d3.event.dy + parseInt(dragTarget.style('left'),10)});
+//};
+//var drag=d3.behavior.drag().on("drag", move);
 
-d3.select('.player').call(drag)
+//d3.select('.player').call(drag)
 
 
 

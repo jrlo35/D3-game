@@ -6,11 +6,18 @@ body{
 	
 	position:relative;
 }
-
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+	@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+	@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+	
 .asteroid{
-	background-image: url('asteroid.png');
+	background-image: url('Pokeball.png');
 	background-size: 100%;
 	position: absolute;
+    -webkit-animation:spin .5s linear infinite;
+    -moz-animation:spin .5s linear infinite;
+    animation:spin .5s linear infinite;
+	
 }
 
 .scoreboard{
@@ -24,14 +31,17 @@ body{
 	float:right;
 }
 
-
+.board{
+	background-image: url(fightingDojo.png);
+	overflow: hidden;
+}
 .scoreboard div{
 	line-height: 35px;
 	font-size: 20px;
 }
 
 .player {
-	background-color: purple;
+	background-image: url('ash.jpg');
 	border-radius: 15px;
 	position: absolute;
 }
